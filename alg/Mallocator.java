@@ -77,7 +77,9 @@ class Mallocator{
         try {
             FileWriter fw = new FileWriter(new File(f));
             for (int i = 0; i < a.length; i++) {
-                fw.write(a[i]);
+                if(a[i] == null)
+                    break;
+                fw.write(a[i] + '\n');
             }
             fw.flush();
             fw.close();
@@ -93,7 +95,7 @@ class Mallocator{
         for (int i = 0; i < temp.length; i++) {
             System.out.println(temp[i]);
         }
-        writeAnswer(temp, "E:/code/memory-allocation-sim/data/FFoutput.data");
+        writeAnswer(temp, "FFoutput.data");
     }
 
     public void runBF(Mallocator m){
@@ -102,6 +104,7 @@ class Mallocator{
         for (int i = 0; i < temp.length; i++) {
             System.out.println(temp[i]);
         }
+        writeAnswer(temp, "BFoutput.data");
     }
 
     public void runWF(Mallocator m){
