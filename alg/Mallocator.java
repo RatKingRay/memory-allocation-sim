@@ -1,15 +1,16 @@
 import java.util.*;
 import java.io.*;
+import java.lang.*;
 
 class Mallocator{
     int[] memoryStart;
     int[] memoryEnd;
     int[] PID;
-    int[] processSize;
+    int[] processSize; 
     
     public Scanner setMScanner(){
         try {
-            Scanner mInput = new Scanner (new File("Minput.data"));
+            Scanner mInput = new Scanner (new File("E:/code/memory-allocation-sim/data/Minput.data"));
             return mInput;
         } catch (Exception e) {
             //TODO: handle exception
@@ -19,7 +20,7 @@ class Mallocator{
 
     public Scanner setPScanner(){
         try {
-            Scanner pInput = new Scanner(new File("Pinput.data"));
+            Scanner pInput = new Scanner(new File("E:/code/memory-allocation-sim/data/Pinput.data"));
             return pInput;
         } catch (Exception e) {
             //TODO: handle exception
@@ -72,6 +73,19 @@ class Mallocator{
         return memoryEnd[x] - memoryStart[x];
     }
 
+    public void writeAnswer(String[] a, String f){
+        try {
+            FileWriter fw = new FileWriter(new File(f));
+            for (int i = 0; i < a.length; i++) {
+                fw.write(a[i]);
+            }
+            fw.flush();
+            fw.close();
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+    }
+
     public void runFF(Mallocator m){
         Context context = new Context(new FF(), m);
         String[] temp = context.executeStrategy();
@@ -79,6 +93,7 @@ class Mallocator{
         for (int i = 0; i < temp.length; i++) {
             System.out.println(temp[i]);
         }
+        writeAnswer(temp, "E:/code/memory-allocation-sim/data/FFoutput.data");
     }
 
     public void runBF(Mallocator m){
