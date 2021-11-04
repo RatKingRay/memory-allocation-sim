@@ -28,11 +28,11 @@ public class BF implements Strategy {
                 answer[i] = tempAns;
                 m.memoryStart[tempMemSpace] = tempMem;
                 allottedCount--;
+                if(allottedCount == 0)
+                    answer[m.PID.length] = "-0";
             }
             if(!allotted)
                 answer[i] = "-" + m.PID[i];
-            if(allottedCount == 0)
-                answer[m.PID.length] = "-0";
         }
         return answer;
     } 

@@ -10,7 +10,8 @@ public class mainClass{
         mallocator.printPArray();
         System.out.println("");
         //mallocator.runFF(mallocator);
-        mallocator.runBF(mallocator);
+        //mallocator.runBF(mallocator);
+        mallocator.runWF(mallocator);
 
 /*         String[] temp0;
         String[] temp1;
