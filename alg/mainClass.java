@@ -8,8 +8,8 @@ public class mainClass{
 
         mallocator.fillPArray();
         mallocator.printPArray();
-
-        mallocator.runFF(mallocator);
+        System.out.println("");
+        //mallocator.runFF(mallocator);
         mallocator.runBF(mallocator);
 
 /*         String[] temp0;
